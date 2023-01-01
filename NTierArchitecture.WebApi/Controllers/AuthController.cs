@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NTierArchitecture.Core.Utilities.Security;
 
 namespace NTierArchitecture.WebApi.Controllers
-{
+{    
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController]    
     public class AuthController : ControllerBase
     {
         private readonly ITokenHandler _tokenHandler;
