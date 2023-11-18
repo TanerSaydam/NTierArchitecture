@@ -16,12 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\NTierArchitecture.Business\NTierArchitecture.Business.csproj" />
+    <ProjectReference Include="..\NTierArchitecture.DataAccess\NTierArchitecture.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NTierArchitecture.Business\NTierArchitecture.Business.csproj" />
-    <ProjectReference Include="..\NTierArchitecture.DataAccess\NTierArchitecture.DataAccess.csproj" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
