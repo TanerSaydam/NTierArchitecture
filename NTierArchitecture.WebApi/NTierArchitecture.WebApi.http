@@ -1,0 +1,6 @@
+@NTierArchitecture.WebApi_HostAddress = http://localhost:5153
+
+GET {{NTierArchitecture.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
