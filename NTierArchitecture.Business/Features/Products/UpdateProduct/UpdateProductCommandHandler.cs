@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using NTierArchitecture.Entities.Models;
 using NTierArchitecture.Entities.Repositories;
 
@@ -8,11 +9,13 @@ internal sealed class UpdateProductCommandHandler : IRequestHandler<UpdateProduc
 {
     private readonly IProductRepository _productRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
-    public UpdateProductCommandHandler(IProductRepository productRepository, IUnitOfWork unitOfWork)
+    public UpdateProductCommandHandler(IProductRepository productRepository, IUnitOfWork unitOfWork, IMapper mapper)
     {
         _productRepository = productRepository;
         _unitOfWork = unitOfWork;
+        _mapper = mapper;
     }
 
     public async Task Handle(UpdateProductCommand request, CancellationToken cancellationToken)
@@ -32,10 +35,7 @@ internal sealed class UpdateProductCommandHandler : IRequestHandler<UpdateProduc
             }
         }
 
-        product.Name = request.Name;
-        product.Quantity = request.Quantity;
-        product.CategoryId = request.CategoryId;
-        product.Price = request.Price;
+        _mapper.Map(request, product);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
     }
