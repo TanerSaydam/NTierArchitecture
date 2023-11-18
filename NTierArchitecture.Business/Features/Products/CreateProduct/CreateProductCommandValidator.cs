@@ -11,6 +11,6 @@ public sealed class CreateProductCommandValidator : AbstractValidator<CreateProd
         RuleFor(p => p.CategoryId).NotNull().WithMessage("Kategori boş olamaz");
         RuleFor(p => p.CategoryId).NotEmpty().WithMessage("Kategori boş olamaz");
         RuleFor(p => p.Price).GreaterThan(0).WithMessage("Ürün fiyatı 0 olamaz");
-        RuleFor(p => p.Quantity).GreaterThan(0).WithMessage("Ürün fiyatı 0 olamaz");
+        RuleFor(p => p.Quantity).GreaterThan(0).WithMessage("Adet 0 olamaz");
     }
 }
