@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 
 namespace NTierArchitecture.Business.Features.Products.CreateProduct;
-internal sealed class CreateProductValidator : AbstractValidator<CreateProductCommand>
+public sealed class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
 {
-    public CreateProductValidator()
+    public CreateProductCommandValidator()
     {
         RuleFor(p => p.Name).NotEmpty().WithMessage("Ürün adı boş olamaz");
         RuleFor(p => p.Name).NotNull().WithMessage("Ürün adı boş olamaz");
