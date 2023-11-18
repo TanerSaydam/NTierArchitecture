@@ -31,10 +31,10 @@ internal sealed class UpdateCategoryCommandHandler : IRequestHandler<UpdateCateg
             {
                 throw new ArgumentException("Bu kategori daha önce oluşturulmuş!");
             }
-
-            category.Name = request.Name;
-
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
+
+        category.Name = request.Name;
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
     }
 }
