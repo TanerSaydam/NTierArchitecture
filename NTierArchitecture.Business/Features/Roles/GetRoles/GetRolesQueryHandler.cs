@@ -1,7 +1,5 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using NTierArchitecture.Entities.Models;
 using NTierArchitecture.Entities.Repositories;
 
 namespace NTierArchitecture.Business.Features.Roles.GetRoles;
