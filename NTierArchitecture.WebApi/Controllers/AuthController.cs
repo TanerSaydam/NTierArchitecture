@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NTierArchitecture.Business.Features.Auth.Login;
 using NTierArchitecture.Business.Features.Auth.Register;
@@ -6,6 +7,7 @@ using NTierArchitecture.WebApi.Abstractions;
 
 namespace NTierArchitecture.WebApi.Controllers;
 
+[AllowAnonymous]
 public sealed class AuthController : ApiController
 {
     public AuthController(IMediator mediator) : base(mediator)
