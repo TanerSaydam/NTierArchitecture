@@ -19,7 +19,12 @@ public sealed class CategoriesController : ApiController
     [RoleFilter("Category.Add")]
     public async Task<IActionResult> Add(CreateCategoryCommand request, CancellationToken cancellationToken)
     {
-        await _mediator.Send(request, cancellationToken);
+        var response = await _mediator.Send(request, cancellationToken);
+
+        if(response.IsError)
+        {
+            return BadRequest(response.FirstError);
+        }
 
         return NoContent();
     }
